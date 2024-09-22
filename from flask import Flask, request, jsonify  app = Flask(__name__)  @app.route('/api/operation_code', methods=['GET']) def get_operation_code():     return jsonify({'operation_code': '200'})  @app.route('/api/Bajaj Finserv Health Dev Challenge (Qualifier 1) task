@@ -1,0 +1,37 @@
+{
+    "status": "success/failure",
+    "userId": "12345",
+    "collegeEmailId": "user@example.com",
+    "collegeRollNumber": "123456",
+    "numbers": [1, 2, 3],
+    "alphabets": ["a", "b", "c"],
+    "highestLowercaseAlphabet": "c",
+    "file": {
+        "valid": true,
+        "mimeType": "application/pdf",
+        "size": 100
+    }
+}
+
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api/operation_code', methods=['GET'])
+def get_operation_code():
+    return jsonify({'operation_code': '200'})
+
+@app.route('/api/process_request', methods=['POST'])
+def process_request():
+    data = request.get_json()
+
+    # Extract data and perform calculations
+
+    response = {
+        # ... (populate response data)
+    }
+
+    return jsonify(response)
+
+if __name__ == '__main__':
+    app.run(debug=True)
